@@ -1,0 +1,48 @@
+﻿@model List<ListProductViewModel>
+
+<div>
+    <div class="float-start">
+        <h2 style="color:#F6C649">Ürünler</h2>
+    </div>
+</div>
+
+<div style="padding-top: 75px">
+    <table id="productTable" class=" table-hover table-striped" style="background-color: #4A171E;">
+        <thead>
+            <tr>
+                <th></th>
+                <th style="font-size: large; color: black">Ürün Adı</th>
+                <th style="font-size: large; color: black">Model Adı</th>
+                <th style="font-size: large; color: black">Birim Fiyatı</th>
+                <th style="font-size: large; color: black">Stok Miktarı</th>
+                <th style="font-size: large; color: black">Kategori</th>
+                <th style="font-size: large; color: black"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (string.IsNullOrWhiteSpace(item.ImagePath))
+                        {
+                            <img src="~/images/products/NoImage.jpg" width="155" height="155" />
+                        }
+                        else
+                        {
+                            <a href="~/images/products/@item.ImagePath" data-lightbox="@item.CategoryId" data-title="@item.Name">
+                                <img src="~/images/products/@item.ImagePath" width="155" height="155" />
+                            </a>
+                        }
+                    </td>
+                    <td style="font-size: large; color: #F6C649">@item.Name</td>
+                    <td style="font-size: large; color: #F6C649">@item.ProductModelName</td>
+                    <td style="font-size: large; color: #F6C649">@item.UnitPrice</td>
+                    <td style="font-size: large; color: #F6C649">@item.UnitInStock</td>
+                    <td style="font-size: large; color: #F6C649">@item.CategoryName</td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

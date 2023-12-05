@@ -1,0 +1,138 @@
+﻿@using Gamerz.WebUI.Extensions;
+<html>
+    <head>
+    <meta name="description" content="Bitirme projesi">
+    <meta name="keywords" content="HTML,CSS,JS,MVC,EntityFramework">
+    <meta name="author" content="Mert Uyan">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/retroscape" type="text/css" />
+
+    <style>
+    html,body{
+            background-image: url('https://wallpapercrafter.com/sizes/1920x1080/134310-digital-digital-art-Xbox-One-Nintendo-Switch-Sony-Microsoft-Nintendo-console-artwork-the-verge-video-games-controllers-consoles.jpg');           
+            background-repeat:no-repeat;
+            height:auto;
+            background-size:cover;
+    font-family: 'Numans', sans-serif;
+        }
+
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        p,a,input,h1 {
+            font-family: 'RetroscapeRegular';
+            font-weight: bold;
+            font-style: normal;          
+        }
+
+        @*style="background-color:#6610f2;*@
+        
+    </style>
+    </head>
+<body class="text-bg-dark ">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#6610f2;opacity:0.9">
+
+            <a class="navbar-brand fw-bold container" href="#">
+                <div class="logo-holder text-center top padding-15-20  display-inline-flex align-items-center" data-img="false">
+                    <div class="generated-svg" style="fill: rgb(246, 198, 73); padding: 5px;">
+                        <svg width="14px" height="16px" viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+                            <title>24</title>
+                            <desc>Created with Sketch.</desc>
+                            <g id="Page-1" stroke="none" stroke-width="1" fillnot="none" fillnot-rule="evenodd">
+                                <g id="Artboard" transform="translate(-149.000000, -111.000000)" fillnot="#000000" fillnot-rule="nonzero">
+                                    <path d="M156.68,127 C154.386655,126.986667 152.53334,126.266674 151.12,124.84 C149.719993,123.386659 149.013333,121.500012 149,119.18 C149.013333,116.873322 149.699993,114.960008 151.06,113.44 C152.43334,111.893326 154.273322,111.113333 156.58,111.1 C158.740011,111.113333 160.439994,111.866659 161.68,113.36 L162.24,114.1 L160.28,114.1 L160.16,113.94 C159.41333,113.126663 158.213342,112.693334 156.56,112.64 L156.4,112.64 C155.413328,112.64 154.393339,112.919997 153.34,113.48 C152.473329,114.013336 151.806669,114.739995 151.34,115.66 C150.926665,116.473337 150.673334,117.353329 150.58,118.3 L161.9,118.3 L161.9,125.64 L160.9,126.1 C159.56666,126.700003 158.160007,127 156.68,127 Z M151.44,122.72 C151.760002,123.253336 152.113331,123.693332 152.5,124.04 C153.620006,124.973338 155.013325,125.44 156.68,125.44 C157.93334,125.44 159.166661,125.173336 160.38,124.64 L160.38,122.72 L151.44,122.72 Z M150.8,121.16 L160.38,121.16 L160.38,119.86 L150.56,119.86 C150.613334,120.313336 150.693333,120.746665 150.8,121.16 Z" id="24"></path>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="logo-text-div">        
+                        <h1 style=" color:#F6C649; font-family:Bebas Neue; letter-spacing: 3px" class="logo-name no-gutters mb-0 font-weight-bold text-nowrap">Gamerz</h1>
+                        <span class="slogan-text position-relative" style="letter-spacing: 3px; font-family:Bebas Neue"></span>
+                    </div>
+                </div>
+                @if (!User.IsLogged())
+                {
+
+                }
+                else
+                {
+                    var firstName = User.GetUserFirstName();
+                    var lastName = User.GetUserLastName();
+
+                    <div class="d-flex">
+                        <div class="mt-2">
+                            Hoş Geldin @firstName @lastName
+                        </div>
+
+                    </div>
+
+                    @if (User.IsAdmin())
+                    {
+                        <div class="ms-3">
+
+                            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="btn btn-danger">Yönetim Paneli</a>
+
+                        </div>
+                            
+                    }
+                    <div>
+                        <a asp-controller="Auth" asp-action="Logout" class="btn btn-outline-warning ms-3"> Çıkış Yap</a>
+                    </div>
+                }
+            </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                               @if (!User.IsLogged())
+                {
+
+                <li class="nav-item">
+                        <a asp-action="AboutUs" asp-controller="Home" class="nav-link " style=" color:#F6C649;font-size:larger" >Hakkımızda</a>
+                </li>
+                } 
+
+
+            </ul>
+        </div>
+        
+    </nav>
+    </header>
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+    @RenderBody()
+    </div>
+
+
+
+    <footer class="text-black text-center fw-bold py-1 mt-auto" style="background-color:#6610f2;opacity:0.9">
+        🎁 | Gamerz.com
+        <p class="text-secondary" style=" color:#F6C649;">Copyright© 2023</p>
+
+    </footer>
+
+
+</body>
+</html>

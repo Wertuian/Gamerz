@@ -1,0 +1,129 @@
+﻿<html>
+    <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.27/sweetalert2.min.css" integrity="sha512-IScV5kvJo+TIPbxENerxZcEpu9VrLUGh1qYWv6Z9aylhxWE4k4Fch3CHl0IYYmN+jrnWQBPlpoTVoWfSMakoKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+    html,body {
+            background-image: url('https://getwallpapers.com/wallpaper/full/1/4/4/1135033-neon-yellow-backgrounds-1920x1503-laptop.jpg');
+            background-size: cover;
+    background-repeat: no-repeat;
+    height: 140%;
+    font-family: 'Numans', sans-serif;
+        }
+
+        .hr2 {
+            height: 4vh;
+            width: .2vw;
+            border-width: 0;
+            background-color: black;
+        }
+        table {
+            background-color: #4A171E;
+            opacity:0.9;
+            border:2px solid;
+            width:100%;
+            border-collapse: collapse;
+        }
+        </style>
+
+    </head>
+    <body>
+
+    <header class="p-3 text-bg-dark mb-3">
+        <div>
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a  class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none fw-bold">
+                    <div class="logo-holder text-center top padding-15-20  display-inline-flex align-items-center" data-img="false">
+                        <div class="generated-svg" style="fill: rgb(246, 198, 73); padding: 5px;">
+                            <svg width="14px" height="16px" viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+                                <title>24</title>
+                                <desc>Created with Sketch.</desc>
+                                <g id="Page-1" stroke="none" stroke-width="1" fillnot="none" fillnot-rule="evenodd">
+                                    <g id="Artboard" transform="translate(-149.000000, -111.000000)" fillnot="#000000" fillnot-rule="nonzero">
+                                        <path d="M156.68,127 C154.386655,126.986667 152.53334,126.266674 151.12,124.84 C149.719993,123.386659 149.013333,121.500012 149,119.18 C149.013333,116.873322 149.699993,114.960008 151.06,113.44 C152.43334,111.893326 154.273322,111.113333 156.58,111.1 C158.740011,111.113333 160.439994,111.866659 161.68,113.36 L162.24,114.1 L160.28,114.1 L160.16,113.94 C159.41333,113.126663 158.213342,112.693334 156.56,112.64 L156.4,112.64 C155.413328,112.64 154.393339,112.919997 153.34,113.48 C152.473329,114.013336 151.806669,114.739995 151.34,115.66 C150.926665,116.473337 150.673334,117.353329 150.58,118.3 L161.9,118.3 L161.9,125.64 L160.9,126.1 C159.56666,126.700003 158.160007,127 156.68,127 Z M151.44,122.72 C151.760002,123.253336 152.113331,123.693332 152.5,124.04 C153.620006,124.973338 155.013325,125.44 156.68,125.44 C157.93334,125.44 159.166661,125.173336 160.38,124.64 L160.38,122.72 L151.44,122.72 Z M150.8,121.16 L160.38,121.16 L160.38,119.86 L150.56,119.86 C150.613334,120.313336 150.693333,120.746665 150.8,121.16 Z" id="24"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="logo-text-div">
+
+                            <h1 style=" color:#F6C649; font-family:Bebas Neue; letter-spacing: 3px" class="logo-name no-gutters mb-0 font-weight-bold text-nowrap">Gamerz / Admin🛠</h1>
+
+                            <span class="slogan-text position-relative" style="letter-spacing: 3px; font-family:Bebas Neue"></span>
+                        </div>
+                    </div>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-5">
+
+                    <li><a style=" color:#F6C649;" href="/admin" class="nav-link px-2  fw-bold mt-3">Ana Sayfa</a></li>
+                    <hr class="ms-4 hr2"/>
+
+                    <li><a asp-area="Admin" asp-action="New" asp-controller="Product" style=" color:#F6C649;"  class="nav-link px-2 ms-3 fw-bold mt-3">Ürün Ekleme Sayfası</a></li>
+
+                    <li><a asp-area="Admin" asp-action="List" asp-controller="ProductModel" class="btn fw-bold mt-3" style="color:#F6C649;">Ürün Modeli Ekle</a></li>
+
+                    <li><a asp-area="Admin" asp-action="New" asp-controller="Category" style=" color:#F6C649;" class="nav-link px-2 ms-4 mt-3 fw-bold ">Kategori Ekleme Sayfası</a></li>
+                    <hr class="ms-4 hr2" />
+
+
+                    <li class="ms-5"><a asp-area="Admin" asp-action="List" asp-controller="Category" style="color:#F6C649;" class="btn fw-bold mt-3 ">Kategorilere Göz At</a></li>
+
+                    <li><a asp-area="Admin" asp-action="List" asp-controller="Product" class="btn fw-bold mt-3" style="color:#F6C649;">Ürünlere Göz At</a></li>
+                    
+                    
+
+                </ul>
+                <a href="/" class="btn btn-outline-warning">Kullanıcı Paneline<br /> Geri Dön</a>
+
+
+                
+
+            </div>
+
+        </div>
+    </header>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        @RenderBody()
+        </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.27/sweetalert2.min.js" integrity="sha512-mJQ9oQHzLM2zXe1cwiHmnMddNrmjv1YlaKZe1rM4J7q8JTnNn9UgeJVBV9jyV/lVGdXymVx6odhgwNZjQD8AqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWvK0beHw0NVJwvCKSgafpy5gwNqKmgUfIBraVwkKI+Cz0SEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @await RenderSectionAsync("Scripts", required:false);
+
+
+
+
+    </body>
+</html>

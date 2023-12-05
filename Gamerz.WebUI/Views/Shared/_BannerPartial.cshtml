@@ -1,0 +1,78 @@
+﻿
+
+<div class="row featurette mt-2">
+    <div class="col-md-7">
+        <br />
+        <br />
+        <br />
+        <div style="background-color:#4A171E;opacity:0.8">
+        <p class="featurette-heading lh-1" style="color:#F6C649">GAMERZ.COM YENİ ve DOPDOLU.<br /><br /><br /> <span class="fw-bold" style="font-size:x-large;opacity:0.9">HAVALARA<br /><br />   UÇURACAK<br /><br /> İNDİRİMLER SİZİ BEKLİYOR!</span></p>
+        </div>
+        <hr />
+        <div style="background-color:#4A171E; opacity:0.8" class="">
+        <p style="font-size:xx-large;color:#F6C649">Oyun dünyasının renkli ve oyuncu dostu adresine Hoş geldiniz! .</p>
+        </div>
+        <hr />
+        @if (!User.IsLogged())
+        {
+            <a asp-action="LoginPage" asp-controller="Auth" class="btn btn-primary mt-2">Giriş Yap/Kayıt Ol</a>
+        }
+
+    </div>
+    <div class="col-md-5">
+        <div class="shadow-sm d-flex align-items-center justify-content-center h-100 border border-gray watermark-dark" style="border-radius: 12px; background-color:#4A171E;opacity:0.8">
+            <form class="submit d-inline-block" method="POST" action="/logo/customize">
+                <input type="hidden" name="_token" value="RlZIKE9CTGexRk8tpnJP56mtnFr6G3bkyxLATQ4B"><input hidden="" name="category" value="g"><input hidden="" name="type" value="lettermark"><input hidden="" name="id" value="24"><input hidden="" name="font" value="Bebas Neue"><input hidden="" name="color" value="#F6C649"><input hidden="" name="font-color" value="#F6C649"><input hidden="" name="l"><input hidden="" name="h"><input hidden="" name="is_ai" value="0"><div>
+                    <div>
+                        <div class="logo-holder text-center top padding-15-20  display-inline-flex align-items-center" data-img="false">
+                            <div class="generated-svg" style="fill: rgb(246, 198, 73); padding: 5px;">
+                                <svg width="50px" height="50px" viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+                                    <title>24</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <g id="Page-1" stroke="none" stroke-width="1" fillnot="none" fillnot-rule="evenodd">
+                                        <g id="Artboard" transform="translate(-149.000000, -111.000000)" fillnot="#000000" fillnot-rule="nonzero">
+                                            <path d="M156.68,127 C154.386655,126.986667 152.53334,126.266674 151.12,124.84 C149.719993,123.386659 149.013333,121.500012 149,119.18 C149.013333,116.873322 149.699993,114.960008 151.06,113.44 C152.43334,111.893326 154.273322,111.113333 156.58,111.1 C158.740011,111.113333 160.439994,111.866659 161.68,113.36 L162.24,114.1 L160.28,114.1 L160.16,113.94 C159.41333,113.126663 158.213342,112.693334 156.56,112.64 L156.4,112.64 C155.413328,112.64 154.393339,112.919997 153.34,113.48 C152.473329,114.013336 151.806669,114.739995 151.34,115.66 C150.926665,116.473337 150.673334,117.353329 150.58,118.3 L161.9,118.3 L161.9,125.64 L160.9,126.1 C159.56666,126.700003 158.160007,127 156.68,127 Z M151.44,122.72 C151.760002,123.253336 152.113331,123.693332 152.5,124.04 C153.620006,124.973338 155.013325,125.44 156.68,125.44 C157.93334,125.44 159.166661,125.173336 160.38,124.64 L160.38,122.72 L151.44,122.72 Z M150.8,121.16 L160.38,121.16 L160.38,119.86 L150.56,119.86 C150.613334,120.313336 150.693333,120.746665 150.8,121.16 Z" id="24"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <hr />
+                            <div class="logo-text-div">
+                                <h1 style=" color:#F6C649; letter-spacing: 3px" class="logo-name no-gutters mb-0 font-weight-bold text-nowrap">GAMERZ.COM <br /><hr />Alışverişin Adresi✌
+                                </h1>
+                                <span class="slogan-text position-relative" style="letter-spacing: 3px; font-family:Bebas Neue"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="d-block select-logo position-absolute text-center d-lg-none" style="left: 0; right: 0; bottom: 15px;"><button type="button" class="btn btn-light border-dark w-75" style="border-radius: 12px">Kaydet ve Özelleştir</button></div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-lg-4">
+        <img class="rounded-circle" src="~/images/LoginImages/xbox.jpg"  width="140" height="140"  role="img"  focusable="false"><rect width="100%" height="100%" ></rect></img>
+        <h2 class="fw-normal">XBox Series S</h2>
+        
+        
+    </div>
+    <div class="col-lg-4">@*Geri Copy paste unutma!*@
+        <img class="rounded-circle" src="~/images/LoginImages/ps5.jpg" width="140" height="140" role="img" focusable="false"><rect width="100%" height="100%"></rect></img>
+        <h2 class="fw-normal">Playstation 5</h2>
+        
+        
+    </div>
+    <div class="col-lg-4">
+        <img class="rounded-circle" src="~/images/LoginImages/Nintendo.jpg" width="140" height="140"  role="img"   focusable="false"><rect width="100%" height="100%"</rect></img>
+        <h2 class="fw-normal">Nintendo Switch</h2>
+        
+        
+    </div>
+
+</div>
+
+
+
+
+

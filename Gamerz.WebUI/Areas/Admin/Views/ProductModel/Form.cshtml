@@ -1,0 +1,49 @@
+﻿@model ProductModelFormViewModel
+<div class="row">
+
+
+    <div class="offset-2 col-8">
+
+        <div class="card" style="border:solid 2px;background-color:#4A171E;opacity:0.9">
+
+            <div class="card-header fw-bold fs-5" style="font-size:xx-large;color:#F6C649">
+                @(Model.Id == 0 ? "Ürün Modeli Ekleme Formu" : "Ürün Modeli Güncelleme Formu")
+            </div>
+
+            <div class="card-body">
+
+                <form method="post" asp-area="Admin" asp-controller="ProductModel" asp-action="Save">
+
+
+                    @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.ErrorMessage
+                        </div>
+                    }
+                    <div class="row mb-3">
+                        <label style="font-size:large;color:#F6C649" asp-for="Name" class="col-sm-2 col-form-label">Model İsmi</label>
+                        <div class="col-sm-10">
+                            <input asp-for="Name" class="form-control" />
+                            <span class="text-danger fw-bold mt-1" asp-validation-for="Name"></span>
+                        </div>
+
+                    </div>
+                    <div class="mb-2">
+                        <label style="font-size:large;color:#F6C649" asp-for="CategoryId"></label>
+                        <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id" , "Name"))" class="form-control">
+                            <option selected disabled>Seçiniz</option>
+                        </select>
+                    </div>
+
+
+                    
+                    <button type="submit" class="btn btn-primary">@(Model.Id == 0 ? "Kaydet" : "Güncelle")</button>
+                    <input type="hidden" asp-for="Id" />
+                    <a href="/admin" class="btn btn-outline-danger">Geri Dön</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

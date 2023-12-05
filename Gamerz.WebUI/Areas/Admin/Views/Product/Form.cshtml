@@ -1,0 +1,164 @@
+﻿@model ProductFormViewModel
+
+
+<div class="row">
+
+    <div class="col-8 offset-2">
+
+        <div class="card" style="border:solid 2px;background-color:#4A171E;opacity:0.9">
+
+            <div class="card-header fw-bold fs-5" style="font-size:xx-large;color:#F6C649">
+                Ürün Formu
+            </div>
+
+            <div class="card-body" style="background-color:#4A171E;opacity:0.9">
+
+
+                <form method="post"  asp-area="Admin" asp-controller="Product" asp-action="Save" enctype="multipart/form-data">
+                 
+
+                    @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.ErrorMessage
+                        </div>
+                    }
+
+                    <input type="hidden" asp-for="Id" />
+                    
+
+                    <div class="mb-2">
+                        <label style="font-size:large;color:#F6C649" asp-for="Name"></label>
+                        <input asp-for="Name" type="text" class="form-control" />
+                        <span class="text-danger fw-bold mt-1"></span>
+                    </div>
+
+                    <div class="mb-2">
+                        <label style="font-size:large;color:#F6C649" asp-for="Description"></label>
+                        <input asp-for="Description" type="text" class="form-control" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label style="font-size:large;color:#F6C649" asp-for="UnitPrice"></label>
+                        <input asp-for="UnitPrice" type="text" class="form-control" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label style="font-size:large;color:#F6C649" style="font-size:xx-large;color:#F6C649" asp-for="UnitInStock">
+                            </label>
+                        <input asp-for="UnitInStock" type="number" class="form-control" />
+                    </div>
+
+                    <div class="mb-2">
+                        <label style="font-size:large;color:#F6C649" asp-for="CategoryId"></label>
+                        <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id" , "Name"))" class="form-control">
+                            <option selected disabled>Seçiniz</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <label style="font-size:large;color:#F6C649" asp-for="ProductModelId"></label>
+                        <select asp-for="ProductModelId" asp-items="@(new SelectList(ViewBag.ProductModels, "Id" , "Name"))" class="form-control">
+                            <option selected disabled>Seçiniz</option>
+                        </select>
+                    </div>
+
+
+                    <div class="mb-2">
+                        <label style="font-size:large;color:#F6C649" asp-for="File"></label> <br />
+
+                        @if (!string.IsNullOrWhiteSpace(ViewBag.ImagePath))
+                        {
+                            <img class="mb-2 mt-2" width="125" height="125" src="~/images/products/@ViewBag.ImagePath" />
+                        }
+
+                        <input type="file" asp-for="File" class="form-control" />
+                    </div>
+
+                    @if (!string.IsNullOrWhiteSpace(ViewBag.FileError))
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.FileError
+                        </div>
+                    }
+
+                    <button type="submit" class="btn btn-primary mt-3 float-end">Formu Gönder</button>
+
+
+                </form>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
+@section Scripts{
+    <script>
+
+        var table = new DataTable('#productTable', {
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/tr.json',
+            },
+            pageLength: 3
+        });
+
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'maxWidth': 400,
+            'maxHeight': 400,
+            'fitImagesInViewPort': true
+        })
+
+
+        $('.btnDelete').click(function (e) {
+
+            e.preventDefault(); // Linkin yönlendirme işlemini engelledim. (Uri'ye # atmıyor böylelikle sayfa yukarıya kaymıyor.)
+
+            var productId = $(this).data('id'); // data-id olarak atanan alandaki veriyi tutar.
+
+
+
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: "Dikkat! Ürün silinecektir.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, onaylıyorum!',
+                cancelButtonText: "İptal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/admin/product/delete/' + productId,
+                        method: 'GET' // URL üzerinden istek attım.
+                    }).done(function () {
+                        Swal.fire(
+                            'Silindi!',
+                            'Ürün başarıyla silindi.',
+                            'success'
+                        ).then(() => { window.location.reload() })
+                    }).fail(function () {
+                        Swal.fire(
+                            'Hata!',
+                            'Ürün bir hata ile karşılaşıldı. Silme işlemi gerçekleşemedi.',
+                            'error'
+                        )
+                    })
+
+
+                }
+            })
+
+
+        })
+
+
+
+    </script>
+}

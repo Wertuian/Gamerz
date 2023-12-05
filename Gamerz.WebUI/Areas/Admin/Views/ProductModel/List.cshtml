@@ -1,0 +1,47 @@
+﻿@model List<ProductListViewModel>
+
+<div class="container">
+    <div>
+        <div class="float-start">  <h2 style="color:#F6C649; font-weight:bold">Modeller</h2>  </div>
+        <a href="/admin" class="btn btn-danger float-end ms-2">Geri Dön</a>
+        <div class="float-end"> <a asp-area="Admin" asp-controller="ProductModel" asp-action="New" class="btn btn-warning">Yeni Model</a> </div>
+
+    </div>
+
+    <div style="padding-top:75px">
+
+        <table class="">
+            <thead>
+
+                <tr>
+                    <th style="color:#F6C649;font-size:x-large">Model Adı<hr /></th>
+                    
+                    <th> 
+
+                    </th>
+                    
+                </tr>
+                
+            </thead>
+            
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="color:#F6C649">@item.Name</td>
+                        <td class="text-end">
+                            <a asp-area="Admin" asp-controller="ProductModel" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning">Düzenle</a>
+                            <a asp-area="Admin" asp-controller="ProductModel" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Sil</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+
+
+        </table>
+
+
+    </div>
+</div>
